@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>CJOVEM - Prof Neylor FM | Infográficos de Estudo Python</title>
+  <meta name="description" content="Carrossel interativo e moderno com infográficos de estudo de Python para o programa CJOVEM com o Prof. Neylor FM. Suporte a zoom por pinça no celular, navegação por toque e modo apresentação.">
+  <meta name="theme-color" content="#0a0e17">
+  
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%2338bdf8'/><stop offset='100%' stop-color='%23facc15'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='%230f172a'/><text x='50' y='62' font-size='42' font-family='sans-serif' font-weight='900' fill='url(%23g)' text-anchor='middle'>Py</text></svg>">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Background Glow Orbs -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+  <!-- Main Application Wrapper -->
+  <div class="app-layout">
+    
+    <!-- Top Header -->
+    <header class="top-nav" id="mainHeader">
+      <div class="brand-group">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="python-svg-icon">
+            <path d="M54.2 8C27.3 8 28.9 19.6 28.9 19.6L29 31.7H55.4V35.4H18.4C6.2 35.4 0.1 42.7 0.1 55C0.1 67.3 10.7 66.8 10.7 66.8H18.3V56.2C18.3 43.6 28.9 44.1 28.9 44.1H48.4C60.5 44.1 59.8 32.9 59.8 32.9L59.7 19.6C59.7 19.6 62.1 8 54.2 8ZM39.8 16.4C43.2 16.4 46 19.2 46 22.6C46 26 43.2 28.8 39.8 28.8C36.4 28.8 33.6 26 33.6 22.6C33.6 19.2 36.4 16.4 39.8 16.4Z" fill="url(#pythonBlueGrad)"/>
+            <path d="M55.8 102C82.7 102 81.1 90.4 81.1 90.4L81 78.3H54.6V74.6H91.6C103.8 74.6 109.9 67.3 109.9 55C109.9 42.7 99.3 43.2 99.3 43.2H91.7V53.8C91.7 66.4 81.1 65.9 81.1 65.9H61.6C49.5 65.9 50.2 77.1 50.2 77.1L50.3 90.4C50.3 90.4 47.9 102 55.8 102ZM70.2 93.6C66.8 93.6 64 90.8 64 87.4C64 84 66.8 81.2 70.2 81.2C73.6 81.2 76.4 84 76.4 87.4C76.4 90.8 73.6 93.6 70.2 93.6Z" fill="url(#pythonYellowGrad)"/>
+            <defs>
+              <linearGradient id="pythonBlueGrad" x1="0" y1="8" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="1" stop-color="#2563eb"/>
+              </linearGradient>
+              <linearGradient id="pythonYellowGrad" x1="50" y1="50" x2="110" y2="102" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#fde047"/>
+                <stop offset="1" stop-color="#eab308"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="title-row">
+            <h1 class="main-title">CJOVEM - Prof Neylor FM</h1>
+            <span class="badge-py">Python Study Guide</span>
+          </div>
+          <p class="subtitle" id="headerSubtitle">Infográficos interativos para estudo e revisão da prova</p>
+        </div>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="nav-actions">
+        <button type="button" class="action-btn" id="btnGrid" title="Ver todos os infográficos (G)" aria-label="Abrir grade de infográficos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="btn-text">Miniaturas</span>
+        </button>
+
+        <button type="button" class="action-btn" id="btnAutoplay" title="Modo Apresentação Automática (Espaço)" aria-label="Iniciar apresentação automática">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon play-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon pause-icon hide"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          <span class="btn-text" id="autoplayText">Play</span>
+        </button>
+
+        <button type="button" class="action-btn icon-only" id="btnHelp" title="Ajuda & Atalhos (?)" aria-label="Ver instruções de atalhos e toque">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
+
+        <button type="button" class="action-btn icon-only" id="btnFullscreen" title="Tela Cheia (F)" aria-label="Alternar modo tela cheia">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon fs-enter"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon fs-exit hide"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Global Progress Bar for Slides & Autoplay -->
+    <div class="progress-bar-container" aria-hidden="true">
+      <div class="progress-bar-fill" id="slideProgressBar"></div>
+      <div class="autoplay-timer-fill" id="autoplayTimerBar"></div>
+    </div>
+
+    <!-- Active Slide Info Strip -->
+    <div class="slide-meta-strip">
+      <div class="slide-indicator">
+        <span class="slide-pill" id="slideCurrentPill">01 / 08</span>
+        <h2 class="slide-title" id="activeSlideTitle">Input, Cast e Type em Python</h2>
+      </div>
+      <div class="slide-tags" id="activeSlideTags">
+        <span class="tag">input()</span>
+        <span class="tag">cast</span>
+        <span class="tag">type()</span>
+      </div>
+    </div>
+
+    <!-- Main Carousel Stage -->
+    <main class="carousel-stage" id="carouselStage" role="region" aria-label="Carrossel de Infográficos de Python">
+      
+      <!-- Previous Button -->
+      <button type="button" class="carousel-nav-btn prev-btn" id="btnPrev" aria-label="Infográfico Anterior (Seta Esquerda)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Carousel Viewport & Slides Track -->
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slides will be generated by JavaScript for performance and exact binding -->
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button type="button" class="carousel-nav-btn next-btn" id="btnNext" aria-label="Próximo Infográfico (Seta Direita)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <!-- Floating Touch / Zoom HUD -->
+      <div class="zoom-floating-hud" id="zoomHud">
+        <div class="hud-pill">
+          <button type="button" class="hud-btn" id="btnZoomOut" title="Reduzir Zoom (-)" aria-label="Reduzir zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          
+          <button type="button" class="hud-scale-display" id="btnZoomScale" title="Clique para resetar (100%)" aria-label="Escala de zoom atual">
+            <span id="zoomLevelText">100%</span>
+          </button>
+          
+          <button type="button" class="hud-btn" id="btnZoomIn" title="Aumentar Zoom (+)" aria-label="Aumentar zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+
+          <div class="hud-divider"></div>
+
+          <button type="button" class="hud-btn" id="btnResetZoom" title="Ajustar à Tela (0)" aria-label="Ajustar zoom ao normal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <span class="hud-mini-label">Reset</span>
+          </button>
+
+          <a href="#" target="_blank" download class="hud-btn" id="btnDownloadImage" title="Abrir imagem em alta resolução" aria-label="Baixar infográfico atual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Touch Gesture Hint Toast -->
+      <div class="gesture-hint-toast" id="gestureHintToast">
+        <div class="hint-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+        </div>
+        <div class="hint-text">
+          <strong>Dica para Celular:</strong> Use o movimento de <span>pinça</span> com 2 dedos ou <span>duplo toque</span> para dar zoom e ler os detalhes. Arraste para mover a imagem!
+        </div>
+        <button type="button" class="hint-close-btn" id="btnCloseHint" aria-label="Fechar dica">✕</button>
+      </div>
+
+    </main>
+
+    <!-- Bottom Thumbnail Navigation Bar -->
+    <footer class="bottom-thumbnails-bar" id="bottomBar">
+      <div class="thumbnails-container" id="thumbnailTrack">
+        <!-- Thumbnails rendered dynamically -->
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal: Grid Overview of all 8 Infographics -->
+  <div class="modal-backdrop hide" id="gridModal" role="dialog" aria-modal="true" aria-labelledby="gridModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="gridModalTitle" class="modal-title">Todos os Infográficos de Python</h2>
+          <p class="modal-desc">Clique em qualquer miniatura para ir direto ao tema</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnCloseGrid" aria-label="Fechar painel de miniaturas">✕</button>
+      </div>
+      <div class="grid-content" id="modalGridContent">
+        <!-- 8 Cards populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Gestures & Shortcuts Help -->
+  <div class="modal-backdrop hide" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+    <div class="modal-card modal-card-sm">
+      <div class="modal-header">
+        <h2 id="helpModalTitle" class="modal-title">Como Navegar e Usar o Zoom</h2>
+        <button type="button" class="modal-close-btn" id="btnCloseHelp" aria-label="Fechar ajuda">✕</button>
+      </div>
+      <div class="help-body">
+        <section class="help-section">
+          <h3>📱 No Celular / Tablet (Touch)</h3>
+          <ul class="help-list">
+            <li><strong>Movimento de Pinça:</strong> Abra ou feche 2 dedos sobre a imagem para ampliar ou diminuir até 5x.</li>
+            <li><strong>Arrastar ampliado:</strong> Quando com zoom, use um dedo para navegar em qualquer canto do infográfico.</li>
+            <li><strong>Duplo Toque:</strong> Toque duas vezes rápido na imagem para dar zoom instantâneo de 2.5x naquele ponto.</li>
+            <li><strong>Trocar de Slide:</strong> Quando em tamanho normal (1x), deslize o dedo para os lados (swipe).</li>
+          </ul>
+        </section>
+
+        <section class="help-section">
+          <h3>💻 No Computador (Teclado e Mouse)</h3>
+          <ul class="help-list">
+            <li><kbd>←</kbd> / <kbd>→</kbd> : Slide anterior / próximo</li>
+            <li><kbd>+</kbd> / <kbd>-</kbd> : Aumentar / diminuir zoom</li>
+            <li><kbd>0</kbd> ou <kbd>Esc</kbd> : Resetar zoom / Fechar janelas</li>
+            <li><kbd>F</kbd> : Alternar Tela Cheia</li>
+            <li><kbd>Espaço</kbd> : Iniciar / pausar apresentação automática</li>
+            <li><kbd>G</kbd> : Abrir grade com todos os infográficos</li>
+            <li><strong>Scroll do Mouse:</strong> Role a rodinha sobre a imagem para zoom suave no ponteiro.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
