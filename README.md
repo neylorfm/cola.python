@@ -21,10 +21,10 @@ Este projeto foi construído para funcionar perfeitamente e sem configurações 
    - Vá em **Settings** (Configurações)
    - Na barra lateral esquerda, clique em **Pages**
    - Em **Build and deployment** > **Source**, selecione `Deploy from a branch`
-   - Em **Branch**, selecione `main` (ou `master`) e a pasta `/(root)`
+   - Em **Branch**, selecione `main` e a pasta `/(root)`
    - Clique em **Save**
 3. Em poucos instantes, seu site estará publicado e acessível no endereço:
-   `https://<seu-usuario>.github.io/<nome-do-repositorio>/`
+   👉 **https://neylorfm.github.io/cola.python/**
 
 ---
 
